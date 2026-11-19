@@ -1,17 +1,48 @@
 module;
-// Import rapide de la bibliothèque standard
 import std;
 
-// Nommage et exportation de ce module
 export module exo1;
 
-// On met toutes les classes du module dans un espace de nom
-// ayant le même nom que le module pour plus de clarté et éviter
-// les conflits de nommage.
-// On exporte la totalité des classe de l'espace de nom.
 export namespace exo1 {
 
+    class Vector {
+    public:
+        Vector(double x, double y, double z)
+            : mX{x}, mY{y}, mZ{z} {}
 
+        // Accesseurs
+        auto GetX() const { return mX; }
+        auto GetY() const { return mY; }
+        auto GetZ() const { return mZ; }
+
+        // Modificateurs
+        void SetX(auto x) { mX = x; }
+        void SetY(auto y) { mY = y; }
+        void SetZ(auto z) { mZ = z; }
+
+        void Homothety(auto k) {
+            mX *= k;
+            mY *= k;
+            mZ *= k;
+        }
+
+        void Sum(const auto v) {
+            mX += v.mX;
+            mY += v.mY;
+            mZ += v.mZ;
+        }
+
+        // Retourne "(x,y,z)" avec deux décimales
+        auto ToString() const {
+            return std::format("({:.2f},{:.2f},{:.2f})", mX, mY, mZ);
+        }
+
+    private:
+        // Coordonnées du vecteur
+        double mX;
+        double mY;
+        double mZ;
+    };
     // Exemple de classe utilisée dans la fonction main()
     class Application {
     public:
