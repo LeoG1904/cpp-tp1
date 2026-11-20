@@ -41,7 +41,8 @@ file(GLOB TEST_FILES CONFIGURE_DEPENDS
 )
 
 # Les tests utilisent le main fourni par Catch2
-set(TEST_SRC_FILES ${SRC_FILES} ${TEST_FILES})
+set(TEST_SRC_FILES ${SRC_FILES} ${TEST_FILES}
+        tests/exo2.cpp)
 list(FILTER TEST_SRC_FILES EXCLUDE REGEX "(^|/)main\\.cpp$")
 
 # Exécutable principal
